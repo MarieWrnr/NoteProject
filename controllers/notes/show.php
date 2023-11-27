@@ -1,7 +1,7 @@
 <?php
 $heading = "Note";
 
-$config = require('config.php'); # конфигурация базы данных
+$config = require base_path('config.php'); # конфигурация базы данных
 $db = new Database($config['database']);
 
 $id = $_GET['id'];
@@ -12,5 +12,6 @@ $note = $db->query('select * from notes where noteid = :id', ['id' => $id])->fin
 
 authorize($note['author'] === $currentUserId);
 
-require "views/notes/show.view.php";
+view("notes/show.view.php",
+['heading' => 'Note', 'note' => $note]);
 

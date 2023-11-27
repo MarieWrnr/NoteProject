@@ -1,10 +1,15 @@
 <?php
+# базовый путь
+const BASE_PATH = __DIR__ . '/../';
+
 # подключаем необходимые функции
-require_once  'functions.php';
-# подключение к дб
-require 'database.php';
-require 'response.php';
-require 'router.php';
+require BASE_PATH . 'functions.php';
+
+spl_autoload_register(function ($class) {
+    require base_path("Core/{$class}.php");
+});
+
+require base_path( 'router.php');
 
 #$config = require('config.php'); # конфигурация базы данных
 
