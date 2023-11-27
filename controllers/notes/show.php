@@ -1,4 +1,7 @@
 <?php
+
+use Core\Database;
+
 $heading = "Note";
 
 $config = require base_path('config.php'); # конфигурация базы данных
