@@ -6,7 +6,7 @@ $config = require base_path('config.php'); # конфигурация базы �
 $db = new Database($config['database']);
 
 $notes = $db->query('select * from notes where author = 3')->getAll();
-#dd($notes);
+//dd($notes);
 
 view("notes/index.view.php", [
     'heading' => 'My Notes',
