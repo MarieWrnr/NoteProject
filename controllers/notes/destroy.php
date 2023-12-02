@@ -1,11 +1,10 @@
 <?php
 
+use Core\App;
 use Core\Database;
 
-$heading = "Note";
+$db = App::resolve(Database::class);
 
-$config = require base_path('config.php'); # конфигурация базы данных
-$db = new Database($config['database']);
 
 $currentUserId = 3;
 

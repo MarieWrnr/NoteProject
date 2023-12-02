@@ -1,9 +1,9 @@
 <?php
 
+use Core\App;
 use Core\Database;
 
-$config = require base_path('config.php'); # конфигурация базы данных
-$db = new Database($config['database']);
+$db = App::resolve(Database::class);
 
 $notes = $db->query('select * from notes where author = 3')->getAll();
 //dd($notes);
