@@ -9,6 +9,8 @@ class Database {
 
     public $connection;
     public $query;
+
+
     public function __construct($config, $username = 'root', $pwd = '1111') {
 
         $dsn = "mysql:" . http_build_query($config, '', ';');
@@ -20,11 +22,12 @@ class Database {
     }
 
     public function query($query, $params = []) {
+        // preparing safe queries
 
-    $this->query = $this->connection->prepare($query);
-    $this->query->execute($params);
+        $this->query = $this->connection->prepare($query);
+        $this->query->execute($params);
 
-    return $this;
+        return $this;
 
     }
 
@@ -39,6 +42,8 @@ class Database {
     public function findOrFail() {
         $result = $this->find();
 
+        // returns page not found (no such element)
+        
         if (! $result) {
             abort();
         }

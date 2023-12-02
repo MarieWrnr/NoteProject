@@ -12,10 +12,13 @@ class App {
         return static::$container;
     }
 
+    // new binding (repeats container syntax)
+
     public static function bind($key, $resolver) {
         static::container()->bind($key, $resolver);
     }
 
+    // using binding
     public static function resolve($key) {
         return static::container()->resolve($key);
     }
