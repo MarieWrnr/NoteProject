@@ -2,6 +2,7 @@
 
 namespace Core;
 
+// class for making new dependencies and comfortable initializing class objects
 class Container {
 
     protected $bindings = [];

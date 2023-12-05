@@ -3,9 +3,10 @@
 use Core\App;
 use Core\Database;
 
+// getting access to db
 $db = App::resolve(Database::class);
 
-
+// bad authentication
 $currentUserId = 3;
 
 // form was submitted. delete the current note
@@ -17,5 +18,6 @@ $db->query('DELETE FROM NOTES WHERE noteid = :id',
     ['id' => $_POST['id']]
 );
 
+// relocate to notes page
 header('location: /notes');
 exit();

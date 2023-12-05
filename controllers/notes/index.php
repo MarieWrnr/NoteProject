@@ -5,6 +5,7 @@ use Core\Database;
 
 $db = App::resolve(Database::class);
 
+// getting all notes of this author
 $notes = $db->query('select * from notes where author = 3')->getAll();
 //dd($notes);
 

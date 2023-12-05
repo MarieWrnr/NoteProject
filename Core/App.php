@@ -1,6 +1,7 @@
 <?php
 namespace Core;
 
+// App class for storing container
 class App {
     protected static $container;
 
