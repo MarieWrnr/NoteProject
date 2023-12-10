@@ -4,6 +4,9 @@ namespace Core;
 
 class Validator {
 
+    // create a password validation
+    // password should contain nums and characters, but not symbols of space, slash, _+=!@#$%^&*()[]{} and so on
+
     public static function string($val, $min = 1, $max = INF) {
         $value = trim($val);
 

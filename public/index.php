@@ -1,10 +1,14 @@
 <?php
+
+session_start();
+
 # базовый путь
 const BASE_PATH = __DIR__ . '/../';
 
 # подключаем необходимые функции
 require BASE_PATH . 'Core/functions.php';
 
+# autoloading some classes
 spl_autoload_register(function ($class) {
 
     $class = str_replace('\\', '/', $class);
@@ -24,12 +28,3 @@ $method = $_POST['_method'] ?? $_SERVER['REQUEST_METHOD'];
 
 
 $router->route($uri, $method);
-
-#$config = require('config.php'); # конфигурация базы данных
-
-#$db = new Database($config['database']);
-
-/*$id = $_GET['id'];
-$query = "SELECT * FROM posts WHERE id = :id";
-$posts = $db->query($query, [':id' => $id])->fetch();
-dd($posts);*/
