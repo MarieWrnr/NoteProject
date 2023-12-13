@@ -8,7 +8,7 @@ $router->get('/about', 'controllers/about.php');
 $router->get('/contact', 'controllers/contact.php');
 
 // getting all notes and making possibility to create new ones
-$router->get('/notes', 'controllers/notes/index.php');
+$router->get('/notes', 'controllers/notes/index.php')->only('auth');
 $router->post('/notes', 'controllers/notes/store.php');
 
 // getting specific note and deleting it
@@ -25,7 +25,7 @@ $router->patch('/note', 'controllers/notes/update.php');
 #$router->patch('', 'controllers/notes/');
 
 // registration form
-$router->get('/register', 'controllers/registration/create.php');
+$router->get('/register', 'controllers/registration/create.php')->only('guest'); // ура разграничение ролей
 $router->post('/register', 'controllers/registration/store.php');
 
 //dd($router->routes);

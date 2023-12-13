@@ -16,14 +16,13 @@ $errors = [];
 if (!Validator::email($email)) {
     $errors['email'] = 'Please provide a valid email address';
 }
-// checking if an account exists
-
-if (Validator::string($password, 7, 255)) {
-    $errors['password'] = 'Password must be more than 8 chars!';
-}
 
 if (Validator::string($username, 4, 255)) {
     $errors['password'] = 'Username must be more than 4 chars!';
+}
+
+if (!Validator::password($password)) {
+    $errors['password'] = 'Password must contain at least one char, digit and be more than 4 chars!';
 }
 
 // if we have same login in db
@@ -58,7 +57,7 @@ if ($user) {
     ]);
 
     // user has logged in
-    $_SESSION['user'] = ['email' => 'email'];
+    $_SESSION['user'] = ['email' => $email, 'username' => $username];
 
     header('location: /');
     exit();
