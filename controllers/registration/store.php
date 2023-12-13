@@ -52,7 +52,7 @@ if ($user) {
 } else {
     $db->query('INSERT INTO users(email, username, password) VALUES(:email, :username, :password)', [
         'email' => $email,
-        'password' => $password,
+        'password' => password_hash($password, PASSWORD_BCRYPT), # УЗНАТЬ ПОБОЛЬШШЕ ОБ ЭТОЙ ФУНКЦИИ
         'username' => $username
     ]);
 
