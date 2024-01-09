@@ -57,7 +57,8 @@ if ($user) {
     ]);
 
     // user has logged in
-    $_SESSION['user'] = ['email' => $email, 'username' => $username];
+    login($user);
+    //$_SESSION['user'] = ['email' => $email, 'username' => $username];
 
     header('location: /');
     exit();

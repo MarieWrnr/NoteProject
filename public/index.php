@@ -8,6 +8,8 @@ const BASE_PATH = __DIR__ . '/../';
 # подключаем необходимые функции
 require BASE_PATH . 'Core/functions.php';
 
+//dd($_SESSION);
+
 # autoloading some classes
 spl_autoload_register(function ($class) {
 
