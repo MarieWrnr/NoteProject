@@ -21,5 +21,4 @@ if (!empty($errors)) {
 
 $db->query('INSERT INTO notes(body, author) VALUES(:body, :author)', ['body' => $_POST['about'], 'author' => 3]);
 
-header('location: /notes');
-die();
+redirect('/notes');

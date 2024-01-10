@@ -19,5 +19,4 @@ $db->query('DELETE FROM NOTES WHERE noteid = :id',
 );
 
 // relocate to notes page
-header('location: /notes');
-exit();
+redirect('/notes');

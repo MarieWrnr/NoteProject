@@ -1,11 +1,9 @@
 <?php
 // IF EMAIL, USERNAME AND PASSWORD MATCH - THEN CREATE A SESSION WITH CURRENT USER
 
-use Core\App;
-use Core\Database;
+use Core\Authenticator;
+use Core\Session;
 use Http\Forms\LoginForm;
-
-$db = App::resolve(\Core\Database::class);
 
 $email = $_POST['email'];
 $username = $_POST['username'];
@@ -13,35 +11,21 @@ $password = $_POST['password'];
 
 $form = new LoginForm();
 
-if (!$form->validate($email, $username, $password)) {
-    return view('sessions/create.view.php',
-        [
-            'errors' => $form->errors()
-        ]);
-}
+if ($form->validate($email, $username, $password)) {
 
-// match the data
-$user = $db->query('SELECT * FROM users WHERE email = :email AND username = :username', [
-    'email' => $email,
-    'username' => $username
-])->find();
 
-if ($user) {
-    if (password_verify($password, $user['password'])) {
-        // password must match password in the db
-        login(['email' => $email, 'username' => $username]);
+    $auth = new Authenticator();
 
-        header('location: /');
-
-        exit();
+    if ($auth->attempt($email, $username, $password)) {
+        redirect('/'); // this actually kill the script
     }
+
+    $form->addError('password', 'No matching account for that data! Try again');
 }
 
-return view('sessions/create.view.php',
-    [
-        'errors' => [
-            'password' => 'No matching account for that data! Try again'
-        ]
-    ]);
+
+Session::flash('errors', $form->errors());
+
+return redirect('/login');
 
 
