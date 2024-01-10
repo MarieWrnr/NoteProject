@@ -3,7 +3,7 @@
 
 use Core\App;
 use Core\Database;
-use Core\Validator;
+use Http\Forms\LoginForm;
 
 $db = App::resolve(\Core\Database::class);
 
@@ -11,25 +11,12 @@ $email = $_POST['email'];
 $username = $_POST['username'];
 $password = $_POST['password'];
 
-// validating
-$errors = [];
+$form = new LoginForm();
 
-if (!Validator::email($email)) {
-    $errors['email'] = 'Please provide a valid email address';
-}
-
-if (Validator::string($username)) {
-    $errors['password'] = 'Please provide a valid username!';
-}
-
-if (!Validator::password($password)) {
-    $errors['password'] = 'Password must contain at least one char, digit and be more than 4 chars!';
-}
-
-if (!empty($errors)) {
+if (!$form->validate($email, $username, $password)) {
     return view('sessions/create.view.php',
         [
-            'errors' => $errors
+            'errors' => $form->errors()
         ]);
 }
 
@@ -53,7 +40,7 @@ if ($user) {
 return view('sessions/create.view.php',
     [
         'errors' => [
-            'password' => 'No matching account for that password! Try again'
+            'password' => 'No matching account for that data! Try again'
         ]
     ]);
 
