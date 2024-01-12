@@ -1,6 +1,7 @@
 <?php
 // IF EMAIL, USERNAME AND PASSWORD MATCH - THEN CREATE A SESSION WITH CURRENT USER
 
+
 use Core\Authenticator;
 use Http\Forms\LoginForm;
 

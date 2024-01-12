@@ -2,7 +2,7 @@
 
 namespace Core;
 
-class Authenticator
+class Authenticator extends LogUser
 {
     public function attempt($email, $username, $password)
     {
@@ -23,17 +23,5 @@ class Authenticator
         }
 
             return false;
-    }
-
-    public function login($user)
-    {
-        $_SESSION['user'] = ['email' => $user['email'], 'username' => $user['username']];
-
-        session_regenerate_id(true);
-    }
-
-    public function logout()
-    {
-        Session::destroy();
     }
 }
