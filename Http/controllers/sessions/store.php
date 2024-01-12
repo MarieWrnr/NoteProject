@@ -2,30 +2,28 @@
 // IF EMAIL, USERNAME AND PASSWORD MATCH - THEN CREATE A SESSION WITH CURRENT USER
 
 use Core\Authenticator;
-use Core\Session;
 use Http\Forms\LoginForm;
 
-$email = $_POST['email'];
-$username = $_POST['username'];
-$password = $_POST['password'];
+/*
+1. Calling method validate() to check if data is correct (using constructor of LoginForm) ->
+2. Return new object of login if data is correct
+*/
 
-$form = new LoginForm();
+$form = LoginForm::validate($attributes = [
+    'email' => $_POST['email'],
+    'username' => $_POST['username'],
+    'password' => $_POST['password']
+]);
 
-if ($form->validate($email, $username, $password)) {
 
+$auth = new Authenticator();
+$signedIn = $auth->attempt($attributes['email'], $attributes['username'], $attributes['password']);
 
-    $auth = new Authenticator();
+if (!$signedIn) {
+    $form->addError('password', 'No matching account for that data! Try again')
+        ->throw();
 
-    if ($auth->attempt($email, $username, $password)) {
-        redirect('/'); // this actually kill the script
-    }
-
-    $form->addError('password', 'No matching account for that data! Try again');
 }
 
-
-Session::flash('errors', $form->errors());
-
-return redirect('/login');
-
+redirect('/'); // this actually kill the script
 

@@ -78,6 +78,10 @@ class Router
         $this->abort();
     }
 
+    public function previousUrl() {
+        return $_SERVER['HTTP_REFERER'];
+    }
+
     // comfortable way to call an unknown page
     protected function abort($code = 404)
     {

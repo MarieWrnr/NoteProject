@@ -15,7 +15,7 @@ require base_path("views/partials/nav.php");
                 <div>
                     <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
                     <div class="mt-2">
-                        <input id="email" name="email" type="email" autocomplete="email" value="<?= isset($_POST['email']) ? $_POST['email'] : '' ?>" required
+                        <input id="email" name="email" type="email" autocomplete="email" value="<?= old('email') ?>" required
                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                     </div>
                     <?php if (isset($errors['email'])) : ?>
@@ -26,7 +26,7 @@ require base_path("views/partials/nav.php");
                 <div>
                     <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Username</label>
                     <div class="mt-2">
-                        <input id="username" name="username" type="text" autocomplete="username" value="<?= isset($_POST['username']) ? $_POST['username'] : '' ?>" required
+                        <input id="username" name="username" type="text" autocomplete="username" value="<?= old('username') ?>" required
                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                     </div>
                     <?php if (isset($errors['username'])) : ?>
@@ -40,7 +40,7 @@ require base_path("views/partials/nav.php");
                         <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Password</label>
                     </div>
                     <div class="mt-2">
-                        <input id="password" name="password" type="password" autocomplete="current-password" value="<?= isset($_POST['password']) ? $_POST['password'] : '' ?>" required
+                        <input id="password" name="password" type="password" autocomplete="current-password" value="<?= old('password') ?>" required
                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                     </div>
 
