@@ -1,7 +1,7 @@
 <?php
 test('it can resolve smth out of the container', function () {
     // arrange
-    $container = new \Core\Container();
+    $container = new \app\Core\Container();
     $container->bind('foo', fn() => 'bar');
 
     // act

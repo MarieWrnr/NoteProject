@@ -8,7 +8,7 @@
     "packages": [
         {
             "name": "illuminate/collections",
-            "version": "v10.40.0",
+            "version": "v10.41.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/collections.git",
@@ -63,7 +63,7 @@
         },
         {
             "name": "illuminate/conditionable",
-            "version": "v10.40.0",
+            "version": "v10.41.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/conditionable.git",
@@ -109,16 +109,16 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v10.40.0",
+            "version": "v10.41.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
-                "reference": "0b26d49d4bb0986da1ca30bcc701d5c22722576b"
+                "reference": "8d7152c4a1f5d9cf7da3e8b71f23e4556f6138ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/contracts/zipball/0b26d49d4bb0986da1ca30bcc701d5c22722576b",
-                "reference": "0b26d49d4bb0986da1ca30bcc701d5c22722576b",
+                "url": "https://api.github.com/repos/illuminate/contracts/zipball/8d7152c4a1f5d9cf7da3e8b71f23e4556f6138ac",
+                "reference": "8d7152c4a1f5d9cf7da3e8b71f23e4556f6138ac",
                 "shasum": ""
             },
             "require": {
@@ -153,11 +153,11 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2023-12-28T16:46:25+00:00"
+            "time": "2024-01-15T18:52:32+00:00"
         },
         {
             "name": "illuminate/macroable",
-            "version": "v10.40.0",
+            "version": "v10.41.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/macroable.git",
@@ -759,38 +759,38 @@
         },
         {
             "name": "nunomaduro/collision",
-            "version": "v8.0.1",
+            "version": "v8.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nunomaduro/collision.git",
-                "reference": "0225cf94fc9aaf645bbc42b5fc838aace025e0e3"
+                "reference": "0d655ffbf3edf9b366e0eea5ab9c7871e0ab3357"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nunomaduro/collision/zipball/0225cf94fc9aaf645bbc42b5fc838aace025e0e3",
-                "reference": "0225cf94fc9aaf645bbc42b5fc838aace025e0e3",
+                "url": "https://api.github.com/repos/nunomaduro/collision/zipball/0d655ffbf3edf9b366e0eea5ab9c7871e0ab3357",
+                "reference": "0d655ffbf3edf9b366e0eea5ab9c7871e0ab3357",
                 "shasum": ""
             },
             "require": {
                 "filp/whoops": "^2.15.4",
                 "nunomaduro/termwind": "^2.0.0",
                 "php": "^8.2.0",
-                "symfony/console": "^7.0.1"
+                "symfony/console": "^7.0.2"
             },
             "conflict": {
                 "laravel/framework": "<11.0.0 || >=12.0.0",
-                "phpunit/phpunit": "<10.5.1 || >=11.0.0"
+                "phpunit/phpunit": "<10.5.1 || >=12.0.0"
             },
             "require-dev": {
+                "larastan/larastan": "^2.8.1",
                 "laravel/framework": "^11.0.0",
-                "laravel/pint": "^1.13.6",
-                "laravel/sail": "^1.26.2",
+                "laravel/pint": "^1.13.8",
+                "laravel/sail": "^1.27.0",
                 "laravel/sanctum": "^4.0.0",
-                "laravel/tinker": "dev-develop",
-                "nunomaduro/larastan": "^3.0.0",
+                "laravel/tinker": "^2.9.0",
                 "orchestra/testbench-core": "^9.0.0",
-                "pestphp/pest": "^2.27.0",
-                "sebastian/environment": "^6.0.1"
+                "pestphp/pest": "^2.31.0 || ^3.0.0",
+                "sebastian/environment": "^6.0.1 || ^7.0.0"
             },
             "type": "library",
             "extra": {
@@ -852,7 +852,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2023-12-08T16:03:53+00:00"
+            "time": "2024-01-12T13:38:24+00:00"
         },
         {
             "name": "nunomaduro/termwind",

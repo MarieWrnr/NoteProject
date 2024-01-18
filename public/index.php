@@ -1,11 +1,13 @@
 <?php
 
-use Core\Session;
-use Core\ValidationException;
+use app\Core\Router;
+use app\Core\Session;
+use app\Core\ValidationException;
 
-const BASE_PATH = __DIR__ . '/../';
+const BASE_PATH_V = __DIR__ . '/../';
+const BASE_PATH = __DIR__ . '/../app/';
 
-require BASE_PATH . '/vendor/autoload.php';
+require BASE_PATH_V . '/vendor/autoload.php';
 
 session_start();
 
@@ -14,7 +16,7 @@ require BASE_PATH . 'Core/functions.php';
 
 require base_path("bootstrap.php");
 
-$router = new \Core\Router();
+$router = new Router();
 $routes = require base_path('routes.php');
 
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];

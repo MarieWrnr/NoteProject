@@ -1,27 +1,27 @@
 {
-    "name": "mariia/note-project",
-    "authors": [
-        {
-            "name": "Maria",
-            "email": "mv.matsko@gmail.com"
-        }
-    ],
-    "require": {
-        "illuminate/collections": "^10.40"
-    },
-    "autoload": {
-        "psr-4": {
-            "Core\\": "Core/",
-            "Http\\": "Http/"
-
-        }
-    },
-    "require-dev": {
-        "pestphp/pest": "^2.31"
-    },
-    "config": {
-        "allow-plugins": {
-            "pestphp/pest-plugin": true
-        }
+  "name": "mariia/note-project",
+  "authors": [
+    {
+      "name": "Maria",
+      "email": "mv.matsko@gmail.com"
     }
+  ],
+  "require": {
+    "illuminate/collections": "^10.40"
+  },
+  "autoload": {
+    "psr-4": {
+      "app\\Core\\": "app/Core/",
+      "app\\Http\\": "app/Http/",
+      "app\\Models\\": "app/Models/"
+    }
+  },
+  "require-dev": {
+    "pestphp/pest": "^2.31"
+  },
+  "config": {
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
+  }
 }
