@@ -1,10 +1,9 @@
 <?php
 
-use app\Core\App;
-use app\Core\Database;
+use app\Models\Note;
 use app\Core\Validator;
 
-$db = App::resolve(Database::class);
+//$db = App::resolve(Database::class);
 
 $errors = [];
 
@@ -22,7 +21,6 @@ if (!empty($errors)) {
 
 $currentUserId = $_SESSION['user']->userid();
 
-$db->query('INSERT INTO notes(body, author) VALUES(:body, :author)', ['body' => $_POST['about'], 'author' => $currentUserId]);// ХАРДКОДИШЬ СУКА
-//dd($db->connection->lastInsertId());
+$note = new Note(true, $_POST['about'], $currentUserId);
 
 redirect('/notes');

@@ -1,22 +1,22 @@
 <?php
 
-use app\Core\App;
-use app\Core\Database;
-
-// getting access to db
-$db = App::resolve(Database::class);
+use app\Models\Note;
 
 // bad authentication
 $currentUserId = $_SESSION['user']->userid();
 
 // form was submitted. delete the current note
-$note = $db->query('SELECT * FROM notes WHERE noteid = :id', ['id' => $_POST['id']])->findOrFail(); # ищем запись в таблице
+$note = new Note(false, null, null, $_POST['id']);
+    //$db->query('SELECT * FROM notes WHERE noteid = :id', ['id' => $_POST['id']])->findOrFail(); # ищем запись в таблице
 
-authorize($note['author'] === $currentUserId); # принадлежит ли запись текущему авторизованному пользователю
+authorize($note->getAuthor() === $currentUserId); # принадлежит ли запись текущему авторизованному пользователю
 
-$db->query('DELETE FROM NOTES WHERE noteid = :id',
+$note->destroyNote();
+unset($note);
+
+/*$db->query('DELETE FROM NOTES WHERE noteid = :id',
     ['id' => $_POST['id']]
-);
+);*/
 
 // relocate to notes page
 redirect('/notes');
