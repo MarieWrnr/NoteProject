@@ -1,9 +1,8 @@
 <?php
 
-use app\Core\App;
-use app\Core\Database;
+use app\Models\Note;
 
-$db = App::resolve(Database::class);
+//$db = App::resolve(Database::class);
 
 $heading = "Note";
 
@@ -11,10 +10,9 @@ $currentUserId = $_SESSION['user']->userid();
 //dd($currentUserId);
 
 $noteid = $_GET['id'];
-$note = $db->query('select * from notes where noteid = :id', ['id' => $noteid])->findOrFail();
-#dd($note);
+$note = new Note(false, null, null, $noteid);
 
-authorize($note['author'] === $currentUserId);
+authorize($note->getAuthor() === $currentUserId);
 
 view("notes/show.view.php",
     ['heading' => 'Note', 'note' => $note]);

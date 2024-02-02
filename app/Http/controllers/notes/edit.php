@@ -1,18 +1,16 @@
 <?php
 
-use app\Core\App;
-use app\Core\Database;
+use app\Models\Note;
 
-$db = App::resolve(Database::class);
+//$db = App::resolve(Database::class);
 
 $currentUserId = $_SESSION['user']->userid();
 
 $id = $_GET['id'];
 // if note exists and belongs to current author id
-$note = $db->query('select * from notes where noteid = :id', ['id' => $id])->findOrFail();
-#dd($note);
+$note = new Note(false, null, null, $id);
 
-authorize($note['author'] === $currentUserId);
+authorize($note->getAuthor() === $currentUserId);
 
 // getting editing form
 view("notes/edit.view.php", [

@@ -8,7 +8,7 @@
 
 <form method="POST" action="/note">
     <input type="hidden" name="_method" value="PATCH">
-    <input type="hidden" name="id" value="<?= $note['noteid']?>">
+    <input type="hidden" name="id" value="<?= $note->getId()?>">
 
   <div class="space-y-12">
     <div class="border-b border-gray-900/10 pb-12">
@@ -16,7 +16,7 @@
           <label for="about" class="block text-sm font-medium leading-6 text-gray-900">Note Body</label>
           <div class="mt-2">
             <textarea id="about" name="about" rows="3" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400
-             focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required><?= $note['body']?></textarea>
+             focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required><?= $note->getBody()?></textarea>
 
               <?php if (isset($errors['about'])) : ?>
               <p class="text-red-500 text-xs mt-2"><?= $errors['about']?></p>

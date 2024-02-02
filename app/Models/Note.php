@@ -53,15 +53,44 @@ class Note
 
     }
 
-        public function destroyNote()
+    public function destroyNote()
     {
         $db = App::resolve(Database::class);
-        $db->query('DELETE FROM NOTES WHERE noteid = :id', ['id' => $this->noteid]);
+        $db->query('DELETE FROM notes WHERE noteid = :id', ['id' => $this->noteid]);
 
     }
 
-    public function getAuthor() {
+    public static function allNotesByAuthor($author)
+    {
+        $db = App::resolve(Database::class);
+
+        return $db->query('SELECT * FROM notes WHERE author = :author',
+            ['author' => $author])->getAll();
+    }
+
+    public function updateBody($new_body)
+    {
+        $this->body = $new_body;
+        $db = App::resolve(Database::class);
+
+        $db->query('UPDATE notes SET body = :body WHERE noteid = :id',
+            ['id' => $this->noteid,
+                'body' => $this->body
+            ]);
+    }
+
+    public function getAuthor()
+    {
         return $this->author;
     }
 
+    public function getBody()
+    {
+        return $this->body;
+    }
+
+    public function getId()
+    {
+        return $this->noteid;
+    }
 }
